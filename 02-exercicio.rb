@@ -21,6 +21,9 @@ meses = 12
 chocolates = 3
 puts "Pretendo comer " + (expectativaDeVida * meses * chocolates).to_s + " chocolates na vida (até os 80 anos)!"
 
+# DESAFIO 
+
 # - Se minha idade é de 1232 milhões de segundos, qual é minha idade em anos?
 cronometro = 1232000000
+cronometro = cronometro.to_f
 puts "Minha idade é " + (cronometro / dias / horas / minutos / segundos).to_s + " anos."
