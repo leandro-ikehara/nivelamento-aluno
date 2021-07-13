@@ -13,12 +13,12 @@ print "Digite a sua idade: "
 idade = gets.to_i
 # puts idade
 
-def calcula_batimentos(idade, horas, dias, minutos, bpm)
-    return idade * horas * dias * minutos * bpm
+def calcula_batimentos(idade)
+    return idade * 24 * 365 * 60 * 80
 end
 
 puts nome.to_s + ", conforme a sua idade de " + idade.to_s + " anos, seu coração está batendo mais de " + 
-calcula_batimentos(idade, 24, 365, 60, 80).to_s + " vezes!"
+calcula_batimentos(idade).to_s + " vezes!"
 
 
 # Para cada parte, escreva códigos que testem os programas escritos.
