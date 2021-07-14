@@ -38,7 +38,7 @@
 # Obs. 2: escreva testes para demonstrar que o sistema está funcionando.
 
 def fase_pandemica(taxa_vacinacao, fator_transmissao, taxa_ocupacao)
-        if taxa_vacinacao >= 0.8
+        if taxa_vacinacao > 0.8
             return "FASE AZUL"
         elsif fator_transmissao < 1 && taxa_ocupacao <= 0.5
             return "FASE VERDE"
@@ -46,14 +46,33 @@ def fase_pandemica(taxa_vacinacao, fator_transmissao, taxa_ocupacao)
             return "FASE AMARELA"
         elsif fator_transmissao < 1 && taxa_ocupacao > 0.65
             return "FASE LARANJA"
-        elsif fator_transmissao <= 1 || taxa_ocupacao < 0.8
+        elsif fator_transmissao >= 1 || taxa_ocupacao > 0.8
             return "FASE VERMELHA"
         elsif taxa_ocupacao > 0.9
             return "FASE ROXA"
-        else
-            return "Fase inválida, favor inserir parâmetros válidos"
-    end
-end
 
-puts fase_pandemica(0.3, 0.8, 0.5)
-puts fase_pandemica(0.95, 0.5, 0.3)
+        else
+            if taxa_vacinacao < 0.0 || taxa_vacinacao > 1.0 
+                return "Parâmetro taxa de vacinação incorreto"
+            elsif fator_transmissao < 0.0
+                return "Parâmetro fator de transmissão incorreto"
+            elsif taxa_ocupacao < 0.0 || taxa_ocupacao > 1.0
+                return "Parâmetro taxa de ocupação de leitos incorreto"
+            end
+        end
+    end
+
+    puts fase_pandemica(0.1, 0.7, 0.5)   # VERDE
+    puts fase_pandemica(1.0, 1, 0.9)     # AZUL
+    puts fase_pandemica(0.1, 1.5, 0.5)   # VERMELHA
+    puts fase_pandemica(0.1, 0.9, 0.95)  # ROXA
+    puts fase_pandemica(0.1, 0.9, 0.70)  # LARANJA
+    puts fase_pandemica(0.1, 0.8, 0.55)  # AMARELA
+    
+    puts fase_pandemica(-1, 0.7, 0.5)    # deve invalidar Taxa de Vacinacao
+    puts fase_pandemica(1.1, 0.7, 0.5)   # deve invalidar Taxa de Vacinacao
+    puts fase_pandemica(0.1, -2, 0.5)    # deve invalidar Fator de Transmissao
+    puts fase_pandemica(0.1, 0.9, -1)    # deve invalidar Taxa de Ocupacao de Leitos
+    puts fase_pandemica(0.1, 0.9, 1.2)   # deve invalidar Taxa de Ocupacao de Leitos
+
+    ########### VERIFICAR ERROS DE PARÂMETROS ############
