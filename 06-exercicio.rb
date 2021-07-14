@@ -30,9 +30,30 @@
 
 # Obs.: validar os parâmetros, considerando as seguintes regras:
 # - taxa de vacinação deve ser um número entre 0.0 e 1.0 (1.0 = 100%)
-# - fator de transmissão dever ser um número maior ou igual a zero
+# - fator de transmissão deve ser um número maior ou igual a zero
 # - taxa de ocupação de leitos deve ser um número entre 0.0 e 1.0 (1.0 = 100%)
 
 # Se houver alguma invalidação nas regras acima, retornar uma string que descreva a regra que foi invalidada.
 
 # Obs. 2: escreva testes para demonstrar que o sistema está funcionando.
+
+def fase_pandemica(taxa_vacinacao, fator_transmissao, taxa_ocupacao)
+        if taxa_vacinacao >= 0.8
+            return "FASE AZUL"
+        elsif fator_transmissao < 1 && taxa_ocupacao <= 0.5
+            return "FASE VERDE"
+        elsif fator_transmissao < 1 && taxa_ocupacao > 0.5
+            return "FASE AMARELA"
+        elsif fator_transmissao < 1 && taxa_ocupacao > 0.65
+            return "FASE LARANJA"
+        elsif fator_transmissao <= 1 || taxa_ocupacao < 0.8
+            return "FASE VERMELHA"
+        elsif taxa_ocupacao > 0.9
+            return "FASE ROXA"
+        else
+            return "Fase inválida, favor inserir parâmetros válidos"
+    end
+end
+
+puts fase_pandemica(0.3, 0.8, 0.5)
+puts fase_pandemica(0.95, 0.5, 0.3)
