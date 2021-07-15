@@ -10,19 +10,19 @@ puts "Bem vindo ao Jogo da Adivinhação 2.0"
 puts "O computador pensou em um número entre 0 e 100. Tente adivinhar!"
 
 # computador pensando no número...
-    numero = rand(0..100)
-    puts "(" + numero.to_s + ")"
+numero = rand(0..100)
+puts "(" + numero.to_s + ")"
 
-    chute = gets.chomp.to_i
+chute = gets.chomp
 
-    if chute < 0 || chute > 100
-        puts "Número inválido"
-    elsif chute != chute.to_s
-        puts "Caracter inválido"
-    end
-
-    if numero == chute
+if chute == "0" || (chute.to_i >= 1 && chute.to_i <= 100)
+    if numero == chute.to_i
         puts "Acertou!"
     else
         puts "Errou!"
     end
+else
+    puts "Chute inválido!"
+end
+
+### Exercício corrido e ajustado ###
