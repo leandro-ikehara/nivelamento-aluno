@@ -12,13 +12,24 @@
 #        *********
 #        **********
 
-linhas = 10
-colunas = 10
+arvore = 10
 
-for x in (1..linhas)
-    print "*"
-    for y in (1..colunas)
+for linha in (1..arvore)
+    for coluna in (1..linha)
         print "*"
     end
     puts
 end
+
+### Corrigido ### 
+
+def triangulo(base)
+    for linha in (1..base)
+        for coluna in (1..linha)
+            print "*"
+        end
+        puts
+    end
+end
+
+triangulo(10)
