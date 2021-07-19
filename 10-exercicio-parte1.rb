@@ -50,6 +50,8 @@ quadrado(10)
  *************
 ***************
 Enviar como 10-exercicio-parte-3.rb
+
+
 4) Quer mais? Tente fazer uma letra V, usando asteriscos “*” e
 underscores "_".
 _***************_
