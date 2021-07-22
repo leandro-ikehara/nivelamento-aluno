@@ -2,14 +2,23 @@
 
 # Completar o código abaixo para que funcione corretamente
 puts "Essa é a máquina de apostas da MegaSena da RD."
+def exibe_array(array)
+    for n in (0..array.size-1)
+        print array[n]
+        if n < array.size-1
+            print ","
+        end
+    end
+    puts
+end
 
 puts "Os números sorteados foram: "
 def sortear_numeros(qtd, limite_inicio, limite_fim)
     sorteados = []
     numeros = 0
     while numeros > qtd
-        if sorteio = rand(limite_inicio..limite_fim)
-            sorteados[numeros] = sorteio
+        sorteio = rand(limite_inicio..limite_fim)
+        if sorteados[numeros] = sorteio
             numeros = numeros + 1
         end
     end
@@ -30,6 +39,7 @@ def obter_apostas(qtd, limite_inicio, limite_fim)
             apostas = gets.chomp.to_i
             apostados[numeros] = apostas
             numeros = numeros - 1
+            
         end
     return apostados
 end
