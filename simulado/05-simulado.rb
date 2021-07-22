@@ -13,9 +13,9 @@ def mediana(array)
     array = array.sort()
     n = array.size
     if n % 2 != 0
-        return array[n/2]
+        return array[n/2].to_f
     elsif n % 2 == 0
-        return array[n/2-1] + array[n/2]/2
+        return array[n/2-1] + array[n/2]/2.to_f
     end
 end
 
