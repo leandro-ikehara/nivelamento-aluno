@@ -32,6 +32,7 @@ print("\n")
 print(negativos_positivos([-10, -5, 0, 0, 5, 10]))
 print("\n")
 print(negativos_positivos([-10, 0, 0, 5, 10, 15]))
+print("\n")
 
 # deve imprimir o array [0.5, 0.25, 0.25]
 # pois há 50% de números positivos no array, 25% de números zero e 25% de números negativos

@@ -15,9 +15,13 @@ def mediana(array)
     puts
     n = array.size
     if n % 2 != 0
-        return array[n/2]
+        return array[n/2].to_f
     elsif n % 2 == 0
+<<<<<<< HEAD
         return array[n/2-1] + array[n/2]/2.0
+=======
+        return array[n/2-1] + array[n/2]/2.to_f
+>>>>>>> 9bdd4110ab26fffc3a7ac365ff2b07c204b8f97a
     end
 end
 

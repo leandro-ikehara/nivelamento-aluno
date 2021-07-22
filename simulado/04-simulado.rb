@@ -25,7 +25,7 @@ ARGUMENTO INVÁLIDO
 
 def imprimir_tabela(base)
     if base == 0
-        print "Argumento Inválido"
+        puts "Argumento Inválido"
     end
     for linha in (0..base - 1)
         linha = linha + 1
@@ -37,5 +37,6 @@ def imprimir_tabela(base)
 end
 
 imprimir_tabela(5)
+imprimir_tabela(0)
 imprimir_tabela(10)
 imprimir_tabela(8)
