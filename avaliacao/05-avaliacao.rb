@@ -13,23 +13,28 @@ OBS.: Não se esqueçam que o retorno da função deve ser um número ponto flut
 
 def calcula_pi(n)
     if n >= 1
-        impares = 1
-        resultado = 0
+        impar = 1
+        calculo = 0
 
         for i in (1 .. n)
             if i % 2 == 1
-                resultado = resultado + (4.0 / impares)
+                calculo = calculo + (4.0 / impar)
             else
-                resultado = resultado - (4.0 / impares)
+                calculo = calculo - (4.0 / impar)
             end
-            impares = impares + 2
+            impar = impar + 2
         end
 
-        return resultado
+        return calculo
     else
         return nil
     end
 end
+
+# Testes
+puts(calcula_pi(3))
+puts(calcula_pi(8))
+puts(calcula_pi(0))
 
 # Ex:
 puts(calcula_pi(4))

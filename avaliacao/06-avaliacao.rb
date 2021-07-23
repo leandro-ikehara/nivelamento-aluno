@@ -5,29 +5,32 @@
 6) O governo do Estado de SP registra o número de mortes por covid diariamente. No entanto, 
 para publicar os resultados de modo mais amigável, é necessário calcular a média móvel semanal.
 Para auxiliar o secretário de Saúde, faça uma função chamada "calcula_media_movel", 
-que deve receber como parâmetros um array com a série de registros de mortes diária por covid e o número de dias de intervalo para calcular as médias. Essa função deve retornar um novo array sendo que o valor de cada elemento é a média de mortes com base no número de dias de intervalo informado no segundo parâmetro.
+que deve receber como parâmetros um array com a série de registros de mortes diária por covid e 
+o número de dias de intervalo para calcular as médias. Essa função deve retornar um novo array 
+sendo que o valor de cada elemento é a média de mortes com base no número de dias de intervalo informado 
+no segundo parâmetro.
 OBS.: O último elemento do novo array deve ser a média dos últimos números da série de registros que sobrarem.
 =end
+
 
 def calcula_media_movel(mortes_diarias, dias)
     medias_moveis = []
 
-    #quantas médias serão calculadas / tamanho final do array de medias móveis
     if mortes_diarias.size % dias == 0
-        qtdMedias = mortes_diarias.size / dias
+        medias = mortes_diarias.size / dias
         sobra = 0
     else
-        qtdMedias = (mortes_diarias.size / dias) + 1
+        medias = (mortes_diarias.size / dias) + 1
         sobra = mortes_diarias.size % dias
     end
 
-    for i in (0 .. qtdMedias - 1) #preencher array de médias moveis
-        if i == qtdMedias - 1 && sobra != 0 #se for a última média de um array com sobra
-            indexInicial = dias * i
-            indexFinal = mortes_diarias.size - 1
+    for i in (0 .. medias - 1)
+        if i == medias - 1 && sobra != 0
+            valor_inicial = dias * i
+            valor_final = mortes_diarias.size - 1
 
             soma = 0.0
-            for n in (indexInicial .. indexFinal)
+            for n in (valor_inicial..valor_final)
                 soma = soma + mortes_diarias[n]
             end
 
@@ -35,11 +38,10 @@ def calcula_media_movel(mortes_diarias, dias)
             medias_moveis[i] = media
             
         else
-            indexInicial = dias * i 
-            indexFinal = dias * (i + 1) - 1
-
+            valor_inicial = dias * i 
+            valor_final = dias * (i + 1) - 1
             soma = 0.0
-            for n in (indexInicial .. indexFinal)
+            for n in (valor_inicial..valor_final)
                 soma = soma + mortes_diarias[n]
             end
 

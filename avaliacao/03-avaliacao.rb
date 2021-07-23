@@ -7,26 +7,23 @@ Valide o parâmetro da altura da escada, que deve ser um número maior ou igual 
 Caso contrário, a função deve retornar um array vazio. 
 =end
 
+
 def altura_escada(altura)
     degraus = []
-    altura >= 1
-    copa = 1
-    base = altura - 1
-    
-    if altura < 1 
-        return " "
-    end
-
-        for linha in (0..altura-1)
-            degraus[linha] = base
-            print "_"
-            base = base - 1
-            print "#"
-            copa = copa + 1
-            print "#"
+    if altura >= 1
+        for linha in (1..altura)
+            degraus[linha] = "_" * (altura - 1) + "#" * linha
+            altura = altura - 1
         end
-    return [degraus.to_s]
+        return degraus
+    else
+        return degraus
+    end
 end
+
+# Testes
+puts(altura_escada(10))
+puts(altura_escada(0))
 
 
 # Ex.:
