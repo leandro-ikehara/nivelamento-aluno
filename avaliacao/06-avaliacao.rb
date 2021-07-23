@@ -7,10 +7,52 @@ para publicar os resultados de modo mais amigável, é necessário calcular a m�
 Para auxiliar o secretário de Saúde, faça uma função chamada "calcula_media_movel", 
 que deve receber como parâmetros um array com a série de registros de mortes diária por covid e o número de dias de intervalo para calcular as médias. Essa função deve retornar um novo array sendo que o valor de cada elemento é a média de mortes com base no número de dias de intervalo informado no segundo parâmetro.
 OBS.: O último elemento do novo array deve ser a média dos últimos números da série de registros que sobrarem.
-=end    
-    
-# Por exemplo: 
+=end
 
+def calcula_media_movel(mortes_diarias, dias)
+    medias_moveis = []
+
+    #quantas médias serão calculadas / tamanho final do array de medias móveis
+    if mortes_diarias.size % dias == 0
+        qtdMedias = mortes_diarias.size / dias
+        sobra = 0
+    else
+        qtdMedias = (mortes_diarias.size / dias) + 1
+        sobra = mortes_diarias.size % dias
+    end
+
+    for i in (0 .. qtdMedias - 1) #preencher array de médias moveis
+        if i == qtdMedias - 1 && sobra != 0 #se for a última média de um array com sobra
+            indexInicial = dias * i
+            indexFinal = mortes_diarias.size - 1
+
+            soma = 0.0
+            for n in (indexInicial .. indexFinal)
+                soma = soma + mortes_diarias[n]
+            end
+
+            media = soma / sobra
+            medias_moveis[i] = media
+            
+        else
+            indexInicial = dias * i 
+            indexFinal = dias * (i + 1) - 1
+
+            soma = 0.0
+            for n in (indexInicial .. indexFinal)
+                soma = soma + mortes_diarias[n]
+            end
+
+            media = soma / dias
+            medias_moveis[i] = media
+        end
+    end
+
+    return medias_moveis
+
+end
+    
+# Por exemplo:
     mortes_diaria = [
         263, 240, 266, 259, 253, 257, 261, 
         239, 274, 264, 260, 262, 261, 273, 

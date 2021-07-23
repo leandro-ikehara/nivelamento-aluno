@@ -11,18 +11,25 @@ a função retorna nil.
 OBS.: Não se esqueçam que o retorno da função deve ser um número ponto flutuante!
 =end
 
-def calcula_pi(numero)
-    numero = 0
-    if numero <= 0
+def calcula_pi(n)
+    if n >= 1
+        impares = 1
+        resultado = 0
+
+        for i in (1 .. n)
+            if i % 2 == 1
+                resultado = resultado + (4.0 / impares)
+            else
+                resultado = resultado - (4.0 / impares)
+            end
+            impares = impares + 2
+        end
+
+        return resultado
+    else
         return nil
     end
-    for n in (0..numero)
-        pi = pi*(4/(3+2*1))
-        n = n + 1
-    end
-    return pi
 end
-
 
 # Ex:
 puts(calcula_pi(4))
