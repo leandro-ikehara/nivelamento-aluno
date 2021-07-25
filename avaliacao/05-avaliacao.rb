@@ -11,20 +11,18 @@ a função retorna nil.
 OBS.: Não se esqueçam que o retorno da função deve ser um número ponto flutuante!
 =end
 
-def calcula_pi(n)
-    if n >= 1
-        impar = 1
-        calculo = 0
-
-        for i in (1 .. n)
-            if i % 2 == 1
-                calculo = calculo + (4.0 / impar)
+def calcula_pi(numero)
+    if numero >= 1.0
+        impar = 1.0
+        calculo = 0.0
+        for contador in (1..numero)
+            if contador % 2 == 1
+                calculo = calculo + (4/impar)
             else
-                calculo = calculo - (4.0 / impar)
+                calculo = calculo - (4/impar)
             end
             impar = impar + 2
         end
-
         return calculo
     else
         return nil

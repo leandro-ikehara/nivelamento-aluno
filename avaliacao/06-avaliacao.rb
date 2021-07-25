@@ -13,45 +13,40 @@ OBS.: O último elemento do novo array deve ser a média dos últimos números d
 =end
 
 
-def calcula_media_movel(mortes_diarias, dias)
+def calcula_media_movel(mortes_diaria, dias)
     medias_moveis = []
 
-    if mortes_diarias.size % dias == 0
-        medias = mortes_diarias.size / dias
+    if mortes_diaria.size % dias == 0
+        medias = mortes_diaria.size / dias
         sobra = 0
     else
-        medias = (mortes_diarias.size / dias) + 1
-        sobra = mortes_diarias.size % dias
+        medias = (mortes_diaria.size/dias) + 1
+        sobra = mortes_diaria.size % dias
     end
 
-    for i in (0 .. medias - 1)
-        if i == medias - 1 && sobra != 0
-            valor_inicial = dias * i
-            valor_final = mortes_diarias.size - 1
+    for indice in (0..medias-1)
+        if indice == medias-1 && sobra != 0
+            indice_inicial = dias * indice
+            indice_final = mortes_diaria.size-1
 
             soma = 0.0
-            for n in (valor_inicial..valor_final)
-                soma = soma + mortes_diarias[n]
+            for valor in (indice_inicial..indice_final)
+                soma = soma + mortes_diaria[valor]
             end
-
-            media = soma / sobra
-            medias_moveis[i] = media
-            
+            media = soma/sobra
+            medias_moveis[indice] = media            
         else
-            valor_inicial = dias * i 
-            valor_final = dias * (i + 1) - 1
+            indice_inicial = dias*indice
+            indice_final = dias*(indice + 1)-1
             soma = 0.0
-            for n in (valor_inicial..valor_final)
-                soma = soma + mortes_diarias[n]
+            for valor in (indice_inicial..indice_final)
+                soma = soma + mortes_diaria[valor]
             end
-
-            media = soma / dias
-            medias_moveis[i] = media
+            media = soma/dias
+            medias_moveis[indice] = media
         end
     end
-
     return medias_moveis
-
 end
     
 # Por exemplo:
